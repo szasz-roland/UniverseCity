@@ -1,0 +1,1901 @@
+[
+ {
+  "id": "matematika_informatikusoknak_i",
+  "name": "Matematika informatikusoknak I.",
+  "semester": 1,
+  "semesterLabel": "1. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": 3,
+   "total": 5
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Téma: Diszkrét matematika. / 1. félévben való teljesítése kritikus.",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "matematika_praktikum",
+  "name": "Matematika praktikum",
+  "semester": 1,
+  "semesterLabel": "1. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": null,
+   "gy": 2,
+   "total": 2
+  },
+  "hours": {
+   "ea": null,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Kiugrási lehetőség.",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "programozas_alapjai",
+  "name": "Programozás alapjai",
+  "semester": 1,
+  "semesterLabel": "1. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": 3,
+   "total": 5
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "1. félévben való teljesítése kritikus.",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "programozas_alapjai_praktikum",
+  "name": "Programozás alapjai praktikum",
+  "semester": 1,
+  "semesterLabel": "1. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": null,
+   "gy": 2,
+   "total": 2
+  },
+  "hours": {
+   "ea": null,
+   "gy": 1
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "szamitogep_halozatok",
+  "name": "Számítógép hálózatok",
+  "semester": 1,
+  "semesterLabel": "1. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": null,
+   "total": 2
+  },
+  "hours": {
+   "ea": 1,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "egyetemi_informatikai_alapok",
+  "name": "Egyetemi informatikai alapok",
+  "semester": 1,
+  "semesterLabel": "1. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": null,
+   "gy": 2,
+   "total": 2
+  },
+  "hours": {
+   "ea": null,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Kiugrási lehetőség.",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "szemelyes_es_szocialis_keszsegek",
+  "name": "Személyes és szociális készségek",
+  "semester": 1,
+  "semesterLabel": "1. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": null,
+   "total": 2
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "webfejlesztes_alapjai",
+  "name": "Webfejlesztés alapjai",
+  "semester": 1,
+  "semesterLabel": "1. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 1,
+   "gy": 2,
+   "total": 3
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "ea és gyak függetlenül teljesíthető / Téma: HTML és CSS",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "optimalizalasi_algoritmusok",
+  "name": "Optimalizálási algoritmusok",
+  "semester": 1,
+  "semesterLabel": "1. félév",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 1,
+   "gy": 3,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "optimalizalasi_algoritmusok_praktikum",
+  "name": "Optimalizálási algoritmusok praktikum",
+  "semester": 1,
+  "semesterLabel": "1. félév",
+  "type": "valaszthato",
+  "credits": {
+   "ea": null,
+   "gy": 2,
+   "total": 2
+  },
+  "hours": {
+   "ea": null,
+   "gy": 1
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "marketing",
+  "name": "Marketing",
+  "semester": 1,
+  "semesterLabel": "1. félév",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 3,
+   "gy": null,
+   "total": 3
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "a_kozgazdasagtan_alapjai",
+  "name": "A közgazdaságtan alapjai",
+  "semester": 1,
+  "semesterLabel": "1. félév",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": null,
+   "total": 2
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "matematika_informatikusoknak_ii",
+  "name": "Matematika informatikusoknak II.",
+  "semester": 2,
+  "semesterLabel": "2. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": 3,
+   "total": 5
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Téma: Folytonos matematika (kalkulus, lineáris algebra)",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "operacios_rendszerek",
+  "name": "Operációs rendszerek",
+  "semester": 2,
+  "semesterLabel": "2. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": null,
+   "total": 2
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "Programozás alapjai gy",
+  "prereqNames": [
+   "Programozás alapjai"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "programozas_alapjai"
+  ]
+ },
+ {
+  "id": "szamitogepes_adatelemzes",
+  "name": "Számítógépes adatelemzés",
+  "semester": 2,
+  "semesterLabel": "2. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": null,
+   "gy": 3,
+   "total": 3
+  },
+  "hours": {
+   "ea": null,
+   "gy": 2
+  },
+  "prereqRaw": "Programozás alapjai gy",
+  "prereqNames": [
+   "Programozás alapjai"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "programozas_alapjai"
+  ]
+ },
+ {
+  "id": "algoritmusok_es_adatszerkezetek",
+  "name": "Algoritmusok és adatszerkezetek",
+  "semester": 2,
+  "semesterLabel": "2. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": 4,
+   "total": 6
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "Programozás alapjai gy",
+  "prereqNames": [
+   "Programozás alapjai"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "programozas_alapjai"
+  ]
+ },
+ {
+  "id": "objektumorientalt_programozas",
+  "name": "Objektumorientált programozás",
+  "semester": 2,
+  "semesterLabel": "2. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": 3,
+   "total": 5
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "Programozás alapjai gy",
+  "prereqNames": [
+   "Programozás alapjai"
+  ],
+  "note": "2. félévben való teljesítése kritikus. / JAVA alapú OOP kurzus",
+  "completed": false,
+  "prereqIds": [
+   "programozas_alapjai"
+  ]
+ },
+ {
+  "id": "szoftverfejlesztesi_folyamatok",
+  "name": "Szoftverfejlesztési folyamatok",
+  "semester": 2,
+  "semesterLabel": "2. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 1
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Programozás alapjai gy előzetes teljesítése vagy párhuzamos felvétele, ea és gyak függetlenül teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "adatbazisok",
+  "name": "Adatbázisok",
+  "semester": 2,
+  "semesterLabel": "2. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Programozás alapjai gy; ea és gyak függetlenül teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "digitalis_architekturak",
+  "name": "Digitális architektúrák",
+  "semester": 3,
+  "semesterLabel": "3. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 4,
+   "gy": null,
+   "total": 4
+  },
+  "hours": {
+   "ea": 3,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "informatikai_biztonsag",
+  "name": "Informatikai biztonság",
+  "semester": 3,
+  "semesterLabel": "3. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": null,
+   "total": 2
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "Számítógép hálózatok",
+  "prereqNames": [
+   "Számítógép hálózatok"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "szamitogep_halozatok"
+  ]
+ },
+ {
+  "id": "szoftverteszteles",
+  "name": "Szoftvertesztelés",
+  "semester": 3,
+  "semesterLabel": "3. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 1
+  },
+  "prereqRaw": "Szoftverfejlesztési folyamatok gy; Programozás alapjai gy",
+  "prereqNames": [
+   "Szoftverfejlesztési folyamatok",
+   "Programozás alapjai"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "programozas_alapjai",
+   "szoftverfejlesztesi_folyamatok"
+  ]
+ },
+ {
+  "id": "projektmunka_i",
+  "name": "Projektmunka I",
+  "semester": 3,
+  "semesterLabel": "3. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": null,
+   "gy": 3,
+   "total": 3
+  },
+  "hours": {
+   "ea": null,
+   "gy": 2
+  },
+  "prereqRaw": "Szoftverfejlesztési folyamatok ea; Szoftverfejlesztési folyamatok gy; Programozás alapjai gy",
+  "prereqNames": [
+   "Szoftverfejlesztési folyamatok",
+   "Szoftverfejlesztési folyamatok",
+   "Programozás alapjai"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "programozas_alapjai",
+   "szoftverfejlesztesi_folyamatok"
+  ]
+ },
+ {
+  "id": "kepfeldolgozo_programcsomagok_uzemmernok_informatikusoknak",
+  "name": "Képfeldolgozó programcsomagok üzemmérnök-informatikusoknak",
+  "semester": 3,
+  "semesterLabel": "3. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 3,
+   "gy": null,
+   "total": 3
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "mesterseges_intelligencia",
+  "name": "Mesterséges intelligencia",
+  "semester": 3,
+  "semesterLabel": "3. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": 3,
+   "total": 5
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Algoritmusok és adatszerkezetek; ea és gyak függetlenül teljesíthető;",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "numerikus_szamitasok",
+  "name": "Numerikus számítások",
+  "semester": 4,
+  "semesterLabel": "4. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 1,
+   "gy": 2,
+   "total": 3
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "Matematika informatikusoknak I.",
+  "prereqNames": [
+   "Matematika informatikusoknak I"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "szoftver_architekturak",
+  "name": "Szoftver architektúrák",
+  "semester": 4,
+  "semesterLabel": "4. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Objektumorientált programozás gy; ea és gyak függetlenül teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "projektmunka_ii",
+  "name": "Projektmunka II",
+  "semester": 4,
+  "semesterLabel": "4. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": null,
+   "gy": 5,
+   "total": 5
+  },
+  "hours": {
+   "ea": null,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Projektmunka I; Adatbázisok; párhuzamos: Szoftver architektúrák gy",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "termeszettudomanyi_labor_programozoknak",
+  "name": "Természettudományi labor programozóknak",
+  "semester": 4,
+  "semesterLabel": "4. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": null,
+   "gy": 2,
+   "total": 2
+  },
+  "hours": {
+   "ea": null,
+   "gy": 2
+  },
+  "prereqRaw": "Digitális architektúrák",
+  "prereqNames": [
+   "Digitális architektúrák"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "digitalis_architekturak"
+  ]
+ },
+ {
+  "id": "rendszeruzemeltetes",
+  "name": "Rendszerüzemeltetés",
+  "semester": 4,
+  "semesterLabel": "4. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": 2,
+   "gy": 3,
+   "total": 5
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Számítógép hálózatok; ea és gyak függetlenül teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "hejprogramozas",
+  "name": "Héjprogramozás",
+  "semester": 4,
+  "semesterLabel": "4. félév",
+  "type": "valaszthato",
+  "credits": {
+   "ea": null,
+   "gy": 2,
+   "total": 2
+  },
+  "hours": {
+   "ea": null,
+   "gy": 2
+  },
+  "prereqRaw": "Programozás alapjai gy",
+  "prereqNames": [
+   "Programozás alapjai"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "programozas_alapjai"
+  ]
+ },
+ {
+  "id": "szakdolgozat_i",
+  "name": "Szakdolgozat I",
+  "semester": 5,
+  "semesterLabel": "5. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": null,
+   "gy": 10,
+   "total": 10
+  },
+  "hours": {
+   "ea": null,
+   "gy": 1
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "szakmai_gyakorlat_uzemmernokoknek",
+  "name": "Szakmai gyakorlat üzemmérnököknek",
+  "semester": 6,
+  "semesterLabel": "6. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": null,
+   "gy": 23,
+   "total": 23
+  },
+  "hours": {
+   "ea": null,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "160 óra",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "szakdolgozat_ii",
+  "name": "Szakdolgozat II",
+  "semester": 6,
+  "semesterLabel": "6. félév",
+  "type": "kotelezo",
+  "credits": {
+   "ea": null,
+   "gy": 5,
+   "total": 5
+  },
+  "hours": {
+   "ea": null,
+   "gy": 1
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "gazdasagi_informatika",
+  "name": "Gazdasági informatika",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 1,
+   "gy": 3,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "fejlett_numerikus_szamitasok",
+  "name": "Fejlett Numerikus számítások",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 1,
+   "gy": 3,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 2
+  },
+  "prereqRaw": "Numerikus számítások, Matematika infromatikusoknak II.",
+  "prereqNames": [
+   "Numerikus számítások",
+   "Matematika infromatikusoknak II"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "numerikus_szamitasok"
+  ]
+ },
+ {
+  "id": "nativ_programozas",
+  "name": "Natív programozás",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Objektumorientált programozás gy; ea és gyak függetlenül teljesíthető / C++ alapú OOP kurzus",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "gepkozeli_programozas",
+  "name": "Gépközeli programozás",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "Objektumorientált programozás gy",
+  "prereqNames": [
+   "Objektumorientált programozás"
+  ],
+  "note": "C programozás",
+  "completed": false,
+  "prereqIds": [
+   "objektumorientalt_programozas"
+  ]
+ },
+ {
+  "id": "penzugyi_alapismeretek",
+  "name": "Pénzügyi alapismeretek",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 3,
+   "gy": null,
+   "total": 3
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "Közgazdaságtan alapjai",
+  "prereqNames": [
+   "Közgazdaságtan alapjai"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "informaciomenedzsment",
+  "name": "Információmenedzsment",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 3,
+   "total": 5
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "Menedzsment",
+  "prereqNames": [
+   "Menedzsment"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "menedzsment"
+  ]
+ },
+ {
+  "id": "szamitastudomany",
+  "name": "Számítástudomány",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 3,
+   "total": 5
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "Matematika informatikusoknak I.",
+  "prereqNames": [
+   "Matematika informatikusoknak I"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "termelesmenedzsment",
+  "name": "Termelésmenedzsment",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 1,
+   "gy": 1,
+   "total": 2
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "Menedzsment",
+  "prereqNames": [
+   "Menedzsment"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "menedzsment"
+  ]
+ },
+ {
+  "id": "programozasi_paradigmak",
+  "name": "Programozási paradigmák",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 1
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Objektumorientált programozás gy; ea és gyak függetlenül teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "mobilalkalmazas_fejlesztes",
+  "name": "Mobilalkalmazás-fejlesztés",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "ea és gyak függetlenül teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "webfejlesztes_keretrendszerek",
+  "name": "Webfejlesztés keretrendszerek",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "ea és gyak függetlenül teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "devops",
+  "name": "DevOps",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "Programozás alapjai gy",
+  "prereqNames": [
+   "Programozás alapjai"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "programozas_alapjai"
+  ]
+ },
+ {
+  "id": "webprogramozas",
+  "name": "Webprogramozás",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Programozás alapjai gy.; Webfejlesztés alapjai gy.; E és gyak függetlenül teljesíthető / JavaScript",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "backend_programozas",
+  "name": "Backend programozás",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 1
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Szoftver architektúrák gy; ea és gyak függetlenül teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "projektmunka_iii",
+  "name": "Projektmunka III",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": null,
+   "gy": 4,
+   "total": 4
+  },
+  "hours": {
+   "ea": null,
+   "gy": 2
+  },
+  "prereqRaw": "Projektmunka II; Szoftver architektúrák",
+  "prereqNames": [
+   "Projektmunka II",
+   "Szoftver architektúrák"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "projektmunka_ii",
+   "szoftver_architekturak"
+  ]
+ },
+ {
+  "id": "nemfunkcionalis_teszteles",
+  "name": "Nemfunkcionális tesztelés",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "Szoftvertesztelés",
+  "prereqNames": [
+   "Szoftvertesztelés"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "szoftverteszteles"
+  ]
+ },
+ {
+  "id": "szervezeti_viselkedes",
+  "name": "Szervezeti viselkedés",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: ősz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 3,
+   "gy": null,
+   "total": 3
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "adozas",
+  "name": "Adózás",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 3,
+   "gy": null,
+   "total": 3
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "Pénzügyi alapismeretek",
+  "prereqNames": [
+   "Pénzügyi alapismeretek"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "penzugyi_alapismeretek"
+  ]
+ },
+ {
+  "id": "matematika_informatikusoknak_iv",
+  "name": "Matematika informatikusoknak IV.",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 3,
+   "total": 5
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "Matematika informatikusoknak II.",
+  "prereqNames": [
+   "Matematika informatikusoknak II"
+  ],
+  "note": "Téma: haladóbb kalkulus",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "fejlett_optimalizalasi_modszerek",
+  "name": "Fejlett Optimalizálási Módszerek",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 1,
+   "gy": 3,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 2
+  },
+  "prereqRaw": "Optimalizálási algoritmusok",
+  "prereqNames": [
+   "Optimalizálási algoritmusok"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "optimalizalasi_algoritmusok"
+  ]
+ },
+ {
+  "id": "vallalati_penzugyek",
+  "name": "Vállalati pénzügyek",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "szamvitel_alapjai",
+  "name": "Számvitel alapjai",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 3,
+   "gy": 3,
+   "total": 6
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "menedzsment",
+  "name": "Menedzsment",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 3,
+   "gy": null,
+   "total": 3
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "autoipari_szoftverek_tesztelese",
+  "name": "Autoipari Szoftverek Tesztelése",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "Szoftvertesztelés",
+  "prereqNames": [
+   "Szoftvertesztelés"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "szoftverteszteles"
+  ]
+ },
+ {
+  "id": "ux_es_ui_tervezes",
+  "name": "UX és UI tervezés",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 1
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Webfejlesztés alapjai; ea és gyak függetlenül teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "ai_rendszerek_fejlesztese",
+  "name": "AI rendszerek fejlesztése",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Projektmunka II gy; ea és gyak függetlenül teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "szkriptprogramozas",
+  "name": "Szkriptprogramozás",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "Programozás alapjai gy",
+  "prereqNames": [
+   "Programozás alapjai"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "programozas_alapjai"
+  ]
+ },
+ {
+  "id": "mobilalkalmazas_teszteles",
+  "name": "Mobilalkalmazás-tesztelés",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "Szoftvertesztelés",
+  "prereqNames": [
+   "Szoftvertesztelés"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "szoftverteszteles"
+  ]
+ },
+ {
+  "id": "assembly_programozas",
+  "name": "Assembly programozás",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 2
+  },
+  "prereqRaw": "Natív programozás gy VAGY Gépközeli programozás (MI) gy VAGY Gépközeli programozás gy",
+  "prereqNames": [
+   "Natív programozás",
+   "Gépközeli programozás (MI)",
+   "Gépközeli programozás"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "gepkozeli_programozas",
+   "nativ_programozas"
+  ]
+ },
+ {
+  "id": "menedzselt_programozas",
+  "name": "Menedzselt programozás",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Objektumorientált programozás gy; E és gyak függetlenül teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "agilis_fejlesztes",
+  "name": "Agilis fejlesztés",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 2
+  },
+  "prereqRaw": "Szoftverfejlesztési folyamatok",
+  "prereqNames": [
+   "Szoftverfejlesztési folyamatok"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "szoftverfejlesztesi_folyamatok"
+  ]
+ },
+ {
+  "id": "felho_es_kod_kornyezetek",
+  "name": "Felhő és köd környezetek",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "ea és gyak függetlenül teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "tesztautomatizalas",
+  "name": "Tesztautomatizálás",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "Szoftvertesztelés",
+  "prereqNames": [
+   "Szoftvertesztelés"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "szoftverteszteles"
+  ]
+ },
+ {
+  "id": "ai_teszteles",
+  "name": "AI tesztelés",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 1,
+   "gy": 1
+  },
+  "prereqRaw": "Szoftvertesztelés",
+  "prereqNames": [
+   "Szoftvertesztelés"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "szoftverteszteles"
+  ]
+ },
+ {
+  "id": "szerveroldali_webprogramozas",
+  "name": "Szerveroldali webprogramozás",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 2,
+   "total": 4
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 1
+  },
+  "prereqRaw": "Backend programozás",
+  "prereqNames": [
+   "Backend programozás"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "backend_programozas"
+  ]
+ },
+ {
+  "id": "menedzsment_alapismeretek_ea",
+  "name": "Menedzsment alapismeretek (ea)",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": null,
+   "total": 2
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "makrookonomia",
+  "name": "Makroökonómia",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 3,
+   "gy": null,
+   "total": 3
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "A közgazdaságtan alapjai; Az előadás a gyakorlattól függetlenül is felvehető és teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "mikrookonomia",
+  "name": "Mikroökonómia",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 3,
+   "gy": 2,
+   "total": 5
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Gazdasági informatika; Az előadás a gyakorlattól függetlenül is felvehető és teljesíthető",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "energiajog",
+  "name": "Energiajog",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 3,
+   "gy": null,
+   "total": 3
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "gazdasagi_jog",
+  "name": "Gazdasági jog",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 3,
+   "gy": null,
+   "total": 3
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "muveszet_tardsadalom_es_tudomanyfilozofia",
+  "name": "Művészet-, tárdsadalom- és tudományfilozófia",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: tavasz",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 3,
+   "gy": null,
+   "total": 3
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "eu_alapismeretek",
+  "name": "EU alapismeretek",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: mindkettő",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": null,
+   "total": 2
+  },
+  "hours": {
+   "ea": 2,
+   "gy": null
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "matematika_informatikusoknak_iii",
+  "name": "Matematika informatikusoknak III.",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév: mindkettő",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 1,
+   "total": 3
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 1
+  },
+  "prereqRaw": "Matematika informatikusoknak II.",
+  "prereqNames": [
+   "Matematika informatikusoknak II"
+  ],
+  "note": "Téma: Valószínűségszámítás és statisztika alapjai",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "validalt_matematika_ismeretek",
+  "name": "Validált matematika ismeretek",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév nincs meghatározva.",
+  "type": "valaszthato",
+  "credits": {
+   "ea": null,
+   "gy": 4,
+   "total": 4
+  },
+  "hours": {
+   "ea": null,
+   "gy": 4
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "validalt_informatika_ismeretek",
+  "name": "Validált informatika ismeretek",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév nincs meghatározva.",
+  "type": "valaszthato",
+  "credits": {
+   "ea": null,
+   "gy": 4,
+   "total": 4
+  },
+  "hours": {
+   "ea": null,
+   "gy": 4
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "validalt_mesterseges_intelligencia_ismeretek",
+  "name": "Validalt mesterséges intelligencia ismeretek",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév nincs meghatározva.",
+  "type": "valaszthato",
+  "credits": {
+   "ea": null,
+   "gy": 4,
+   "total": 4
+  },
+  "hours": {
+   "ea": null,
+   "gy": 0
+  },
+  "prereqRaw": "Mesterséges intelligencia ea",
+  "prereqNames": [
+   "Mesterséges intelligencia"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "mesterseges_intelligencia"
+  ]
+ },
+ {
+  "id": "validalt_kepfeldolgozo_ismeretek",
+  "name": "Validált képfeldolgozó ismeretek",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév nincs meghatározva.",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 0,
+   "gy": 2,
+   "total": 2
+  },
+  "hours": {
+   "ea": 0,
+   "gy": 0
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "validalt_gazdasagi_human_ismeretek",
+  "name": "Validált gazdasági-humán ismeretek",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév nincs meghatározva.",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 3,
+   "gy": 2,
+   "total": 5
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "",
+  "prereqNames": [],
+  "note": "Egymástól függetlenül felvehetők és elismerhetők",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "diszkret_matematika_2",
+  "name": "Diszkrét matematika 2",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév nincs meghatározva.",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 3,
+   "total": 5
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "Matematika informatikusoknak I.",
+  "prereqNames": [
+   "Matematika informatikusoknak I"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": []
+ },
+ {
+  "id": "diszkret_matematika_3",
+  "name": "Diszkrét matematika 3",
+  "semester": null,
+  "semesterLabel": "Választható tárgyak, félév nincs meghatározva.",
+  "type": "valaszthato",
+  "credits": {
+   "ea": 2,
+   "gy": 3,
+   "total": 5
+  },
+  "hours": {
+   "ea": 2,
+   "gy": 2
+  },
+  "prereqRaw": "Diszkrét matematika 2",
+  "prereqNames": [
+   "Diszkrét matematika 2"
+  ],
+  "note": "",
+  "completed": false,
+  "prereqIds": [
+   "diszkret_matematika_2"
+  ]
+ }
+]

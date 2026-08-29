@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import type { Subject } from '@/types/curriculum';
 import { curriculum } from '@/data/curriculum';
 import { usePlanner } from '@/components/planner/usePlanner';
@@ -38,11 +38,6 @@ export function PlannerPage() {
     document.addEventListener('pointermove', move);
     document.addEventListener('pointerup', up);
   }
-
-  const placedIds = useMemo(
-    () => new Set(planner.placed.map((p) => p.subjectId)),
-    [planner.placed],
-  );
 
   function toggleChosen(uid: string) {
     setChosen((prev) => {
@@ -98,7 +93,7 @@ export function PlannerPage() {
         >
           <Catalog
             subjects={subjects}
-            placedIds={placedIds}
+            placed={planner.placed}
             onSelect={setSelected}
             onPlace={setPlacing}
           />

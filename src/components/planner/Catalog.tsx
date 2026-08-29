@@ -1,18 +1,29 @@
 import { useMemo, useState } from 'react';
-import type { Subject } from '@/types/curriculum';
+import type { PlacedSubject, Subject } from '@/types/curriculum';
 import { colorFor } from '@/lib/colors';
+import { DAYS_SHORT, fmt } from '@/lib/grid';
 
 interface CatalogProps {
   subjects: Subject[];
-  placedIds: Set<string>;
+  placed: PlacedSubject[];
   onSelect: (id: string) => void;
   onPlace: (s: Subject) => void;
 }
 
-export function Catalog({ subjects, placedIds, onSelect, onPlace }: CatalogProps) {
+export function Catalog({ subjects, placed, onSelect, onPlace }: CatalogProps) {
   const [search, setSearch] = useState('');
   const [semFilter, setSemFilter] = useState<string>('all');
   const [typeFilter, setTypeFilter] = useState<string>('all');
+
+  const placedBySubject = useMemo(() => {
+    const map = new Map<string, PlacedSubject[]>();
+    placed.forEach((p) => {
+      const arr = map.get(p.subjectId);
+      if (arr) arr.push(p);
+      else map.set(p.subjectId, [p]);
+    });
+    return map;
+  }, [placed]);
 
   const semesters = useMemo(() => {
     const s = new Set<number>();
@@ -94,7 +105,7 @@ export function Catalog({ subjects, placedIds, onSelect, onPlace }: CatalogProps
           <SubjectCard
             key={s.id}
             s={s}
-            placed={placedIds.has(s.id)}
+            placedBlocks={placedBySubject.get(s.id) ?? []}
             onClick={() => onSelect(s.id)}
             onPlace={() => onPlace(s)}
           />
@@ -169,16 +180,18 @@ function Chip({
 
 function SubjectCard({
   s,
-  placed,
+  placedBlocks,
   onClick,
   onPlace,
 }: {
   s: Subject;
-  placed: boolean;
+  placedBlocks: PlacedSubject[];
   onClick: () => void;
   onPlace: () => void;
 }) {
   const c = colorFor(s.id);
+  const placed = placedBlocks.length > 0;
+  const sortedBlocks = [...placedBlocks].sort((a, b) => a.day - b.day || a.start - b.start);
   return (
     <div
       onClick={onClick}
@@ -238,6 +251,25 @@ function SubjectCard({
             {s.type === 'kotelezo' ? 'kötelező' : 'választható'}
           </span>
         </div>
+        {sortedBlocks.length > 0 && (
+          <div
+            style={{
+              display: 'flex',
+              gap: 6,
+              flexWrap: 'wrap',
+              marginTop: 4,
+              fontSize: 10.5,
+              color: 'var(--sage-ink)',
+              fontWeight: 600,
+            }}
+          >
+            {sortedBlocks.map((p) => (
+              <span key={p.uid}>
+                {DAYS_SHORT[p.day]} {fmt(p.start)}–{fmt(p.start + p.dur)}
+              </span>
+            ))}
+          </div>
+        )}
         {s.prereqRaw && (
           <div style={{ fontSize: 10.5, color: 'var(--peach-ink)', marginTop: 4 }}>
             → {s.prereqRaw}

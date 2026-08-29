@@ -46,6 +46,30 @@ export function Catalog({ subjects, placed, onSelect, onPlace }: CatalogProps) {
     });
   }, [subjects, search, semFilter, typeFilter]);
 
+  if (subjects.length === 0) {
+    return (
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          background: 'var(--panel)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          padding: '0 28px',
+        }}
+      >
+        <div style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.5 }}>
+          Nincs betöltött tárgy.
+          <br />
+          Importálj egy Neptun felvett kurzusok exportot a kezdéshez.
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       style={{

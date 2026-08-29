@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Pill } from '@/components/ui/primitives';
 import { btn, btnDanger } from '@/components/ui/buttonStyles';
 
@@ -10,6 +10,7 @@ interface TopBarProps {
   onSelectMode: () => void;
   onDeleteAll: () => void;
   onExportPdf: () => Promise<void>;
+  onImportFile: (file: File) => Promise<void>;
   catalogOpen: boolean;
   onToggleCatalog: () => void;
 }
@@ -22,11 +23,14 @@ export function TopBar({
   onSelectMode,
   onDeleteAll,
   onExportPdf,
+  onImportFile,
   catalogOpen,
   onToggleCatalog,
 }: TopBarProps) {
   const [confirmAll, setConfirmAll] = useState(false);
   const [exporting, setExporting] = useState(false);
+  const [importing, setImporting] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   return (
     <div
       style={{
@@ -70,6 +74,31 @@ export function TopBar({
         </span>
       </div>
       <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept=".xlsx"
+          style={{ display: 'none' }}
+          onChange={async (e) => {
+            const file = e.target.files?.[0];
+            e.target.value = '';
+            if (!file) return;
+            setImporting(true);
+            try {
+              await onImportFile(file);
+            } finally {
+              setImporting(false);
+            }
+          }}
+        />
+        <button
+          style={btn(true)}
+          disabled={importing}
+          onClick={() => fileInputRef.current?.click()}
+          title="Neptun felvett kurzusok exportjának (.xlsx) importálása"
+        >
+          {importing ? 'Importálás…' : 'Importálás'}
+        </button>
         <Pill label="Tárgy a tanrendben" value={placedCount} />
         <Pill label="Kredit" value={placedCredits} accent />
         {hasPlaced && !selectMode && (

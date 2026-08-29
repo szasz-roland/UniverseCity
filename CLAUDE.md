@@ -30,6 +30,8 @@ page of a planned larger dashboard — treat it as the foundation, not the whole
 - **Tailwind CSS 3** — styling; soft pastel theme (MeuHorario-inspired, not a "super AI" look)
 - **React Router 6** — app shell, ready for future pages
 - Persistence today: **localStorage**, isolated behind `src/lib/storage.ts`
+- **xlsx** (SheetJS, `xlsx@latest` tarball from cdn.sheetjs.com — not npm registry) — parses
+  Neptun's "felvett kurzusok" export in `src/lib/neptunImport.ts`, loaded lazily
 - Planned backend: **Supabase** (managed cloud first; self-host is an open escape hatch)
 - Hosting: **Vercel** (free tier, no custom domain yet); static build is also self-hostable
 - Future packaging: **PWA → Capacitor (Android) → Tauri (desktop)**, all from this one codebase
@@ -63,6 +65,8 @@ src/
 │   ├── grid.ts             # grid config (Mon–Fri, 06:00–23:00, 30-min slots) + time helpers
 │   ├── colors.ts           # deterministic per-subject pastel colors
 │   ├── conflicts.ts        # timetable overlap detection
+│   ├── pdfExport.ts        # timetable → PDF export
+│   ├── neptunImport.ts     # Neptun "felvett kurzusok" .xlsx import — SEE Data source
 │   └── storage.ts          # persistence layer — SEE RULE 1
 ├── components/
 │   ├── ui/primitives.tsx   # shared buttons, Overlay, Pill
@@ -89,6 +93,16 @@ Subjects are parsed from `tantervi_halo_2026-2027_uzemmernok.xlsx` (sheet `Tante
 is messy free-text; the parser splits prereqs vs. notes best-effort and resolves ~28/84
 prereq links to ids. Regenerate the JSON with the script; don't hand-edit it.
 
+The planner starts empty — a student imports their own schedule via the "Importálás" button
+in `TopBar`, which uploads a Neptun "felvett kurzusok" export (.xlsx, downloaded manually by
+the user from Neptun's Tárgyfelvétel page; no credential handling). `src/lib/neptunImport.ts`
+parses it into `Subject`s (one per ea/gy/szeminárium row) and grid placements. That export has
+no credit column, so credit is looked up in `curriculum.json` by normalized subject name —
+accurate for real tanterv courses, `0` for general electives outside the tanterv sheet (e.g. a
+university-wide "Karrierépítés" course). A more accurate credit source (Neptun's separate
+"felvett tárgyak" export, joined by course code) was prototyped and rolled back for now — see
+git history around 2026-08-29 if revisiting.
+
 ## Known issues / caveats
 
 - **HTML5 drag-and-drop (catalog → grid) does not work on touchscreens.** The manual `+`
@@ -97,19 +111,24 @@ prereq links to ids. Regenerate the JSON with the script; don't hand-edit it.
 - `public/manifest.webmanifest` references `icon-192.png` / `icon-512.png` that don't exist
   yet — real PNG app icons still need to be made. SVG favicon works meanwhile.
 - Prereq resolution is incomplete (see Data source) — needs a verification pass.
+- Imported non-tanterv electives (e.g. Karrierépítés) show 0 credit — no credit source for
+  them yet (see Data source).
 
 ## Roadmap
 
 - [x] Curriculum browser + timetable planner (local-only)
+- [x] Neptun "felvett kurzusok" .xlsx import → populates catalog + grid (see Data source)
 - [ ] Persistence via Supabase (change only `src/lib/storage.ts` + add auth)
 - [ ] Prerequisite graph view + "eligible now" flags (uses existing `prereqIds` + `completed`)
 - [ ] Progress tracking + statistics
 - [ ] Notes upload (needs backend storage)
-- [ ] Calendar sync via Neptun ICS import + reminders (needs backend for cross-device/notifs)
+- [ ] Calendar sync via Neptun ICS import + reminders (needs backend for cross-device/notifs) —
+      distinct from the xlsx import above; this is external-calendar sync, not yet built
 - [ ] PWA install → Android (Capacitor) → desktop (Tauri)
 
-Integration boundaries decided during planning: **Neptun = ICS import only** (no credential
-handling — security), **MarkMyProfessor = link-out only** (robots-disallowed, no scraping).
+Integration boundaries decided during planning: **Neptun = file export import only** (manual
+.xlsx/.ics upload by the user, no credential handling — security), **MarkMyProfessor =
+link-out only** (robots-disallowed, no scraping).
 
 ## Commands
 

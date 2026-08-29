@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import type { Subject } from '@/types/curriculum';
-import { curriculum } from '@/data/curriculum';
 import { usePlanner } from '@/components/planner/usePlanner';
 import { SelectBar, TopBar } from '@/components/planner/TopBar';
 import { Catalog } from '@/components/planner/Catalog';
@@ -13,8 +12,20 @@ const CATALOG_MAX_W = 560;
 const CATALOG_DEFAULT_W = 376;
 
 export function PlannerPage() {
-  const subjects = curriculum;
+  const [subjects, setSubjects] = useState<Subject[]>([]);
   const planner = usePlanner(subjects);
+
+  async function handleImportFile(file: File) {
+    const { parseNeptunFile } = await import('@/lib/neptunImport');
+    const { subjects: imported, placements } = await parseNeptunFile(file);
+    const byId = new Map(imported.map((s) => [s.id, s]));
+    setSubjects(imported);
+    planner.deleteAll();
+    placements.forEach((p) => {
+      const subj = byId.get(p.subjectId);
+      if (subj) planner.addToGrid(subj, p.day, p.start, p.dur);
+    });
+  }
 
   const [selected, setSelected] = useState<string | null>(null);
   const [placing, setPlacing] = useState<Subject | null>(null);
@@ -71,6 +82,7 @@ export function PlannerPage() {
           const { exportTimetablePdf } = await import('@/lib/pdfExport');
           await exportTimetablePdf(planner.placed, subjects, planner.conflicts);
         }}
+        onImportFile={handleImportFile}
         catalogOpen={catalogOpen}
         onToggleCatalog={() => setCatalogOpen((o) => !o)}
       />

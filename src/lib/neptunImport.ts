@@ -81,6 +81,7 @@ function buildSubjects(rows: NeptunKurzusRow[]): NeptunImportResult {
       prereqNames: matched?.prereqNames ?? [],
       prereqIds: matched?.prereqIds ?? [],
       note: noteParts.length ? noteParts.join(' · ') : (matched?.note ?? ''),
+      online: isCoursera,
       completed: false,
     });
 

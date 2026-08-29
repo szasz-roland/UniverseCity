@@ -16,6 +16,8 @@ export interface Subject {
   prereqIds: string[];
   /** Free-text note (megjegyzés). */
   note: string;
+  /** Online/self-paced course with no fixed schedule (e.g. Coursera-hosted). */
+  online?: boolean;
   /** User progress flag — designed in from day one, UI wired later. */
   completed: boolean;
 }

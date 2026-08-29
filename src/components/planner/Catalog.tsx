@@ -274,6 +274,20 @@ function SubjectCard({
           <span style={{ fontSize: 11, color: 'var(--muted)' }}>
             {s.type === 'kotelezo' ? 'kötelező' : 'választható'}
           </span>
+          {s.online && (
+            <span
+              style={{
+                fontSize: 11,
+                padding: '2px 8px',
+                borderRadius: 20,
+                background: 'var(--lav)',
+                color: 'var(--lav-ink)',
+                fontWeight: 600,
+              }}
+            >
+              Coursera
+            </span>
+          )}
         </div>
         {sortedBlocks.length > 0 && (
           <div

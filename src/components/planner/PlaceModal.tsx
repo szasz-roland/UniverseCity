@@ -2,7 +2,8 @@ import { useState } from 'react';
 import type { Subject } from '@/types/curriculum';
 import { colorFor } from '@/lib/colors';
 import { DAYS, DAYS_SHORT } from '@/lib/grid';
-import { Overlay, btn } from '@/components/ui/primitives';
+import { Overlay } from '@/components/ui/primitives';
+import { btn } from '@/components/ui/buttonStyles';
 
 interface PlaceModalProps {
   subj: Subject;

@@ -8,6 +8,10 @@ import { Timetable } from '@/components/planner/Timetable';
 import { PlaceModal } from '@/components/planner/PlaceModal';
 import { DetailPanel } from '@/components/planner/DetailPanel';
 
+const CATALOG_MIN_W = 260;
+const CATALOG_MAX_W = 560;
+const CATALOG_DEFAULT_W = 376;
+
 export function PlannerPage() {
   const subjects = curriculum;
   const planner = usePlanner(subjects);
@@ -16,6 +20,24 @@ export function PlannerPage() {
   const [placing, setPlacing] = useState<Subject | null>(null);
   const [selectMode, setSelectMode] = useState(false);
   const [chosen, setChosen] = useState<Set<string>>(() => new Set());
+  const [catalogOpen, setCatalogOpen] = useState(true);
+  const [catalogWidth, setCatalogWidth] = useState(CATALOG_DEFAULT_W);
+
+  function onCatalogResizeStart(e: React.PointerEvent) {
+    e.preventDefault();
+    const startX = e.clientX;
+    const origWidth = catalogWidth;
+    const move = (ev: PointerEvent) => {
+      const next = origWidth + (ev.clientX - startX);
+      setCatalogWidth(Math.max(CATALOG_MIN_W, Math.min(CATALOG_MAX_W, next)));
+    };
+    const up = () => {
+      document.removeEventListener('pointermove', move);
+      document.removeEventListener('pointerup', up);
+    };
+    document.addEventListener('pointermove', move);
+    document.addEventListener('pointerup', up);
+  }
 
   const placedIds = useMemo(
     () => new Set(planner.placed.map((p) => p.subjectId)),
@@ -50,17 +72,51 @@ export function PlannerPage() {
         selectMode={selectMode}
         onSelectMode={() => setSelectMode(true)}
         onDeleteAll={planner.deleteAll}
+        onExportPdf={async () => {
+          const { exportTimetablePdf } = await import('@/lib/pdfExport');
+          await exportTimetablePdf(planner.placed, subjects, planner.conflicts);
+        }}
+        catalogOpen={catalogOpen}
+        onToggleCatalog={() => setCatalogOpen((o) => !o)}
       />
       {selectMode && (
         <SelectBar count={chosen.size} onCancel={exitSelect} onDelete={deleteChosen} />
       )}
       <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
-        <Catalog
-          subjects={subjects}
-          placedIds={placedIds}
-          onSelect={setSelected}
-          onPlace={setPlacing}
-        />
+        <div
+          style={{
+            position: 'relative',
+            width: catalogOpen ? catalogWidth : 0,
+            flexShrink: 0,
+            overflow: 'hidden',
+            visibility: catalogOpen ? 'visible' : 'hidden',
+            borderRight: catalogOpen ? '1px solid var(--line)' : 'none',
+            transition: catalogOpen
+              ? 'width 220ms ease'
+              : 'width 220ms ease, visibility 0s linear 220ms',
+          }}
+        >
+          <Catalog
+            subjects={subjects}
+            placedIds={placedIds}
+            onSelect={setSelected}
+            onPlace={setPlacing}
+          />
+          {catalogOpen && (
+            <div
+              onPointerDown={onCatalogResizeStart}
+              title="Húzd az átméretezéshez"
+              style={{
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                width: 6,
+                height: '100%',
+                cursor: 'ew-resize',
+              }}
+            />
+          )}
+        </div>
         <Timetable
           placed={planner.placed}
           conflicts={planner.conflicts}

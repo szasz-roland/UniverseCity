@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Pill, btn, btnDanger } from '@/components/ui/primitives';
+import { Pill } from '@/components/ui/primitives';
+import { btn, btnDanger } from '@/components/ui/buttonStyles';
 
 interface TopBarProps {
   placedCredits: number;
@@ -8,6 +9,9 @@ interface TopBarProps {
   selectMode: boolean;
   onSelectMode: () => void;
   onDeleteAll: () => void;
+  onExportPdf: () => Promise<void>;
+  catalogOpen: boolean;
+  onToggleCatalog: () => void;
 }
 
 export function TopBar({
@@ -17,8 +21,12 @@ export function TopBar({
   selectMode,
   onSelectMode,
   onDeleteAll,
+  onExportPdf,
+  catalogOpen,
+  onToggleCatalog,
 }: TopBarProps) {
   const [confirmAll, setConfirmAll] = useState(false);
+  const [exporting, setExporting] = useState(false);
   return (
     <div
       style={{
@@ -30,7 +38,30 @@ export function TopBar({
         borderBottom: '1px solid var(--line)',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <button
+          onClick={onToggleCatalog}
+          title={catalogOpen ? 'Tárgylista elrejtése' : 'Tárgylista megjelenítése'}
+          aria-label={catalogOpen ? 'Tárgylista elrejtése' : 'Tárgylista megjelenítése'}
+          style={{
+            ...btn(),
+            width: 34,
+            height: 34,
+            padding: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M2 4.5H14M2 8H14M2 11.5H14"
+              stroke="currentColor"
+              strokeWidth="1.4"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
         <span className="disp" style={{ fontSize: 21, fontWeight: 600, letterSpacing: '-.01em' }}>
           Tanrend
         </span>
@@ -64,9 +95,22 @@ export function TopBar({
               Összes törlése
             </button>
           ))}
-        <button style={btn()} title="Hamarosan">
-          PDF export
-        </button>
+        {hasPlaced && (
+          <button
+            style={btn()}
+            disabled={exporting}
+            onClick={async () => {
+              setExporting(true);
+              try {
+                await onExportPdf();
+              } finally {
+                setExporting(false);
+              }
+            }}
+          >
+            {exporting ? 'Exportálás…' : 'PDF export'}
+          </button>
+        )}
       </div>
     </div>
   );

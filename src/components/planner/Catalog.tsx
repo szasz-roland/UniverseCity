@@ -38,10 +38,9 @@ export function Catalog({ subjects, placedIds, onSelect, onPlace }: CatalogProps
   return (
     <div
       style={{
-        width: 376,
-        flexShrink: 0,
+        width: '100%',
+        height: '100%',
         background: 'var(--panel)',
-        borderRight: '1px solid var(--line)',
         display: 'flex',
         flexDirection: 'column',
       }}

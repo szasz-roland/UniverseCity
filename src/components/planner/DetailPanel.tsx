@@ -1,6 +1,7 @@
 import type { Subject } from '@/types/curriculum';
 import { colorFor } from '@/lib/colors';
-import { Overlay, btn } from '@/components/ui/primitives';
+import { Overlay } from '@/components/ui/primitives';
+import { btn } from '@/components/ui/buttonStyles';
 
 interface DetailPanelProps {
   subj: Subject;

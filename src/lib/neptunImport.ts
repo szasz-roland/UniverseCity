@@ -62,6 +62,12 @@ function buildSubjects(rows: NeptunKurzusRow[]): NeptunImportResult {
     const matched = curriculumByName.get(normalizeSubjectName(row.targynev));
     const isEa = row.tipus === 'Előadás';
     const kredit = (isEa ? matched?.credits.ea : matched?.credits.gy) ?? 0;
+    const isCoursera = row.kurzuskod.toLowerCase().includes('coursera');
+
+    const noteParts = [
+      isCoursera && 'Coursera online kurzus, órarend nélkül',
+      row.oktato && `Oktató: ${row.oktato}`,
+    ].filter((p): p is string => Boolean(p));
 
     subjects.push({
       id: row.kod || row.kurzuskod,
@@ -74,7 +80,7 @@ function buildSubjects(rows: NeptunKurzusRow[]): NeptunImportResult {
       prereqRaw: matched?.prereqRaw ?? '',
       prereqNames: matched?.prereqNames ?? [],
       prereqIds: matched?.prereqIds ?? [],
-      note: row.oktato ? `Oktató: ${row.oktato}` : (matched?.note ?? ''),
+      note: noteParts.length ? noteParts.join(' · ') : (matched?.note ?? ''),
       completed: false,
     });
 

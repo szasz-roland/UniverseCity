@@ -1,5 +1,7 @@
 # Tanrend — Üzemmérnök informatikus dashboard
 
+**Live:** [universe-city.vercel.app](https://universe-city.vercel.app/planner)
+
 An interactive university dashboard for SZTE's *Üzemmérnök informatikus BProf* programme.
 The first feature is a **curriculum browser + timetable planner**: browse all subjects from
 the tantervi háló, see prerequisites, and drag subjects into a weekly timetable.
@@ -98,8 +100,9 @@ See the deploy walkthrough for Vercel (recommended, free) or self-hosting with n
 
 ## Contributing
 
-Issues and PRs welcome. Please run `npm run type-check` and `npm run lint` before opening a PR;
-CI runs both plus a production build on every push.
+Issues and PRs welcome. See [CONTRIBUTING.md](./CONTRIBUTING.md) for the branch/deploy workflow —
+`main` auto-deploys to production on every push, so changes go through a branch and a preview
+deployment first.
 
 ## License
 

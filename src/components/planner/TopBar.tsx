@@ -37,6 +37,8 @@ export function TopBar({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        rowGap: 10,
         padding: '14px 22px',
         background: 'var(--panel)',
         borderBottom: '1px solid var(--line)',
@@ -73,7 +75,7 @@ export function TopBar({
           Üzemmérnök informatikus · 2026/2027
         </span>
       </div>
-      <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+      <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
         <input
           ref={fileInputRef}
           type="file"

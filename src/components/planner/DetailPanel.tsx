@@ -19,10 +19,31 @@ export function DetailPanel({ subj, subjects, onClose, onPlace }: DetailPanelPro
 
   return (
     <Overlay onClose={onClose} right>
-      <div style={{ width: 360 }}>
-        <div
-          style={{ width: 6, height: 40, borderRadius: 4, background: c.ink, opacity: 0.6, marginBottom: 12 }}
-        />
+      <div style={{ width: 'min(360px, calc(100vw - 48px))' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+          <div
+            style={{ width: 6, height: 40, borderRadius: 4, background: c.ink, opacity: 0.6, marginBottom: 12 }}
+          />
+          <button
+            onClick={onClose}
+            aria-label="Bezárás"
+            title="Bezárás"
+            style={{
+              border: 'none',
+              background: '#F0EEE7',
+              color: 'var(--ink)',
+              borderRadius: 8,
+              width: 28,
+              height: 28,
+              fontSize: 14,
+              cursor: 'pointer',
+              lineHeight: 1,
+              flexShrink: 0,
+            }}
+          >
+            ×
+          </button>
+        </div>
         <div className="disp" style={{ fontSize: 20, fontWeight: 600, lineHeight: 1.2, marginBottom: 6 }}>
           {subj.name}
         </div>

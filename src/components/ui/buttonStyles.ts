@@ -23,7 +23,7 @@ export function btnDanger(): CSSProperties {
     fontWeight: 600,
     cursor: 'pointer',
     fontFamily: 'inherit',
-    background: '#D9534F',
+    background: '#C74C49',
     color: '#fff',
   };
 }

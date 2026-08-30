@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Subject } from '@/types/curriculum';
 import { colorFor } from '@/lib/colors';
-import { DAYS, DAYS_SHORT } from '@/lib/grid';
+import { DAY_END, DAY_START, DAYS, DAYS_SHORT } from '@/lib/grid';
 import { Overlay } from '@/components/ui/primitives';
 import { btn } from '@/components/ui/buttonStyles';
 
@@ -19,7 +19,11 @@ export function PlaceModal({ subj, onClose, onPlace }: PlaceModalProps) {
 
   function submit() {
     const [hh, mm] = time.split(':').map(Number);
-    onPlace(day, hh * 60 + mm, dur);
+    const start = Math.max(
+      DAY_START * 60,
+      Math.min(DAY_END * 60 - dur, hh * 60 + mm),
+    );
+    onPlace(day, start, dur);
   }
 
   const inp: React.CSSProperties = {
@@ -29,13 +33,12 @@ export function PlaceModal({ subj, onClose, onPlace }: PlaceModalProps) {
     padding: '8px 10px',
     fontSize: 13,
     fontFamily: 'inherit',
-    outline: 'none',
     background: '#FBFAF7',
   };
 
   return (
     <Overlay onClose={onClose}>
-      <div style={{ width: 360 }}>
+      <div style={{ width: 'min(360px, calc(100vw - 48px))' }}>
         <div style={{ display: 'flex', gap: 9, alignItems: 'center', marginBottom: 16 }}>
           <div style={{ width: 5, height: 34, borderRadius: 4, background: c.ink, opacity: 0.6 }} />
           <div>

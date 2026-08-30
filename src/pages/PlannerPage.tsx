@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Subject } from '@/types/curriculum';
+import { loadSubjects, saveSubjects } from '@/lib/storage';
 import { usePlanner } from '@/components/planner/usePlanner';
 import { SelectBar, TopBar } from '@/components/planner/TopBar';
 import { Catalog } from '@/components/planner/Catalog';
@@ -12,19 +13,38 @@ const CATALOG_MAX_W = 560;
 const CATALOG_DEFAULT_W = 376;
 
 export function PlannerPage() {
-  const [subjects, setSubjects] = useState<Subject[]>([]);
+  const [subjects, setSubjects] = useState<Subject[]>(() => loadSubjects());
+  const [importError, setImportError] = useState<string | null>(null);
   const planner = usePlanner(subjects);
 
+  // Persist through the storage layer whenever the imported subject list changes.
+  useEffect(() => {
+    saveSubjects(subjects);
+  }, [subjects]);
+
   async function handleImportFile(file: File) {
-    const { parseNeptunFile } = await import('@/lib/neptunImport');
-    const { subjects: imported, placements } = await parseNeptunFile(file);
-    const byId = new Map(imported.map((s) => [s.id, s]));
-    setSubjects(imported);
-    planner.deleteAll();
-    placements.forEach((p) => {
-      const subj = byId.get(p.subjectId);
-      if (subj) planner.addToGrid(subj, p.day, p.start, p.dur);
-    });
+    setImportError(null);
+    try {
+      const { parseNeptunFile } = await import('@/lib/neptunImport');
+      const { subjects: imported, placements } = await parseNeptunFile(file);
+      if (imported.length === 0) {
+        setImportError(
+          'Nem sikerült tárgyakat kiolvasni ebből a fájlból. Ellenőrizd, hogy a Neptun "felvett kurzusok" exportját töltötted-e fel — a jelenlegi tanrended változatlan maradt.',
+        );
+        return;
+      }
+      const byId = new Map(imported.map((s) => [s.id, s]));
+      setSubjects(imported);
+      planner.deleteAll();
+      placements.forEach((p) => {
+        const subj = byId.get(p.subjectId);
+        if (subj) planner.addToGrid(subj, p.day, p.start, p.dur);
+      });
+    } catch {
+      setImportError(
+        'Hiba történt a fájl feldolgozása közben. Ellenőrizd, hogy érvényes .xlsx fájlt választottál-e — a jelenlegi tanrended változatlan maradt.',
+      );
+    }
   }
 
   const [selected, setSelected] = useState<string | null>(null);
@@ -89,11 +109,45 @@ export function PlannerPage() {
       {selectMode && (
         <SelectBar count={chosen.size} onCancel={exitSelect} onDelete={deleteChosen} />
       )}
+      {importError && (
+        <div
+          role="alert"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 12,
+            padding: '9px 22px',
+            background: '#FBE7DC',
+            color: '#C1663B',
+            fontSize: 12.5,
+            borderBottom: '1px solid var(--line2)',
+          }}
+        >
+          <span>{importError}</span>
+          <button
+            onClick={() => setImportError(null)}
+            aria-label="Üzenet bezárása"
+            style={{
+              border: 'none',
+              background: 'transparent',
+              color: '#C1663B',
+              cursor: 'pointer',
+              fontSize: 15,
+              lineHeight: 1,
+              flexShrink: 0,
+            }}
+          >
+            ×
+          </button>
+        </div>
+      )}
       <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
         <div
           style={{
             position: 'relative',
-            width: catalogOpen ? catalogWidth : 0,
+            width: catalogOpen ? `min(${catalogWidth}px, 100vw)` : 0,
+            maxWidth: '100vw',
             flexShrink: 0,
             overflow: 'hidden',
             visibility: catalogOpen ? 'visible' : 'hidden',

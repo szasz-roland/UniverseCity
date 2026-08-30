@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 
 export function Pill({ label, value, accent }: { label: string; value: number; accent?: boolean }) {
   return (
@@ -37,6 +37,17 @@ export function Overlay({
   onClose: () => void;
   right?: boolean;
 }) {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    contentRef.current?.focus();
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose();
+    }
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [onClose]);
+
   return (
     <div
       onClick={onClose}
@@ -52,12 +63,17 @@ export function Overlay({
       }}
     >
       <div
+        ref={contentRef}
+        role="dialog"
+        aria-modal="true"
+        tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
         style={{
           background: 'var(--panel)',
           borderRadius: right ? '18px 0 0 18px' : 18,
           padding: '22px 22px 20px',
           boxShadow: '0 12px 40px rgba(0,0,0,.16)',
+          outline: 'none',
           ...(right ? { height: '100%', overflowY: 'auto' } : {}),
         }}
       >

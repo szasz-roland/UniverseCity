@@ -92,7 +92,6 @@ export function Catalog({ subjects, placed, onSelect, onPlace }: CatalogProps) {
             padding: '9px 12px',
             fontSize: 13,
             fontFamily: 'inherit',
-            outline: 'none',
             background: '#FBFAF7',
           }}
         />

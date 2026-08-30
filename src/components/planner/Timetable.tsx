@@ -247,10 +247,13 @@ export function Timetable({
                     )}
                     {!selectMode && (
                       <button
+                        onPointerDown={(e) => e.stopPropagation()}
                         onClick={(e) => {
                           e.stopPropagation();
                           removePlaced(p.uid);
                         }}
+                        aria-label={`${s.name} eltávolítása`}
+                        title="Eltávolítás"
                         style={{
                           position: 'absolute',
                           top: 3,

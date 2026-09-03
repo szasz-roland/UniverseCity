@@ -32,6 +32,9 @@ page of a planned larger dashboard — treat it as the foundation, not the whole
 - Persistence today: **localStorage**, isolated behind `src/lib/storage.ts`
 - **xlsx** (SheetJS, `xlsx@latest` tarball from cdn.sheetjs.com — not npm registry) — parses
   Neptun's "felvett kurzusok" export in `src/lib/neptunImport.ts`, loaded lazily
+- **@dnd-kit/core + @dnd-kit/utilities** — catalog card → grid drag-to-place (mouse, touch,
+  and pen via `PointerSensor`). Placed-block move/resize is separate, hand-rolled Pointer
+  Events code in `Timetable.tsx`, already touch-capable — not part of dnd-kit
 - Planned backend: **Supabase** (managed cloud first; self-host is an open escape hatch)
 - Hosting: **Vercel** (free tier, no custom domain yet); static build is also self-hostable
 - Future packaging: **PWA → Capacitor (Android) → Tauri (desktop)**, all from this one codebase
@@ -105,9 +108,6 @@ git history around 2026-08-29 if revisiting.
 
 ## Known issues / caveats
 
-- **HTML5 drag-and-drop (catalog → grid) does not work on touchscreens.** The manual `+`
-  modal does. Before the Android/mobile pass, swap the drag implementation for a touch-capable
-  library (dnd-kit is the intended choice).
 - `public/manifest.webmanifest` references `icon-192.png` / `icon-512.png` that don't exist
   yet — real PNG app icons still need to be made. SVG favicon works meanwhile.
 - Prereq resolution is incomplete (see Data source) — needs a verification pass.

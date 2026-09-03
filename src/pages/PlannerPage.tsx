@@ -1,6 +1,15 @@
 import { useEffect, useState } from 'react';
+import {
+  DndContext,
+  DragOverlay,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  type DragStartEvent,
+} from '@dnd-kit/core';
 import type { Subject } from '@/types/curriculum';
 import { loadSubjects, saveSubjects } from '@/lib/storage';
+import { colorFor } from '@/lib/colors';
 import { usePlanner } from '@/components/planner/usePlanner';
 import { SelectBar, TopBar } from '@/components/planner/TopBar';
 import { Catalog } from '@/components/planner/Catalog';
@@ -53,6 +62,10 @@ export function PlannerPage() {
   const [chosen, setChosen] = useState<Set<string>>(() => new Set());
   const [catalogOpen, setCatalogOpen] = useState(true);
   const [catalogWidth, setCatalogWidth] = useState(CATALOG_DEFAULT_W);
+  const [dragSubjectId, setDragSubjectId] = useState<string | null>(null);
+  const dragSensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
+  );
 
   function onCatalogResizeStart(e: React.PointerEvent) {
     e.preventDefault();
@@ -88,8 +101,15 @@ export function PlannerPage() {
   }
 
   const selectedSubject = selected ? subjects.find((s) => s.id === selected) : null;
+  const dragSubject = dragSubjectId ? subjects.find((s) => s.id === dragSubjectId) : null;
 
   return (
+    <DndContext
+      sensors={dragSensors}
+      onDragStart={(e: DragStartEvent) => setDragSubjectId(String(e.active.id))}
+      onDragEnd={() => setDragSubjectId(null)}
+      onDragCancel={() => setDragSubjectId(null)}
+    >
     <div style={{ display: 'flex', height: '100vh', flexDirection: 'column' }}>
       <TopBar
         placedCredits={planner.placedCredits}
@@ -213,5 +233,37 @@ export function PlannerPage() {
         />
       )}
     </div>
+    <DragOverlay dropAnimation={null}>
+      {dragSubject && (
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+            padding: '8px 12px',
+            borderRadius: 10,
+            background: '#fff',
+            border: '1.5px solid ' + colorFor(dragSubject.id).ink,
+            boxShadow: '0 6px 18px rgba(0,0,0,.18)',
+            fontSize: 12.5,
+            fontWeight: 500,
+            maxWidth: 240,
+            cursor: 'grabbing',
+          }}
+        >
+          <div
+            style={{
+              width: 4,
+              alignSelf: 'stretch',
+              borderRadius: 4,
+              background: colorFor(dragSubject.id).ink,
+              flexShrink: 0,
+            }}
+          />
+          {dragSubject.name}
+        </div>
+      )}
+    </DragOverlay>
+    </DndContext>
   );
 }

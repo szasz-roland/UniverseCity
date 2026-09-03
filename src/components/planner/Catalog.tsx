@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useDraggable } from '@dnd-kit/core';
 import type { PlacedSubject, Subject } from '@/types/curriculum';
 import { colorFor } from '@/lib/colors';
 import { DAYS_SHORT, fmt } from '@/lib/grid';
@@ -215,14 +216,16 @@ function SubjectCard({
   const c = colorFor(s.id);
   const placed = placedBlocks.length > 0;
   const sortedBlocks = [...placedBlocks].sort((a, b) => a.day - b.day || a.start - b.start);
+  const { setNodeRef, listeners, attributes, isDragging } = useDraggable({
+    id: s.id,
+    data: { subject: s },
+  });
   return (
     <div
+      ref={setNodeRef}
       onClick={onClick}
-      draggable
-      onDragStart={(e) => {
-        e.dataTransfer.setData('text/subject-id', s.id);
-        e.dataTransfer.effectAllowed = 'copy';
-      }}
+      {...listeners}
+      {...attributes}
       style={{
         border: '1px solid var(--line)',
         borderRadius: 13,
@@ -235,6 +238,8 @@ function SubjectCard({
         display: 'flex',
         gap: 10,
         alignItems: 'flex-start',
+        opacity: isDragging ? 0.4 : 1,
+        touchAction: 'none',
       }}
       onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--line2)')}
       onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--line)')}

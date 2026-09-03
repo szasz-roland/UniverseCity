@@ -1,4 +1,6 @@
 import { useRef, useState } from 'react';
+import { useDndMonitor, type DragEndEvent, type DragMoveEvent } from '@dnd-kit/core';
+import { getEventCoordinates } from '@dnd-kit/utilities';
 import type { PlacedSubject, Subject } from '@/types/curriculum';
 import { colorFor } from '@/lib/colors';
 import { DAY_END, DAY_START, DAYS, fmt, ROW_H, ROWS, SLOT } from '@/lib/grid';
@@ -37,6 +39,48 @@ export function Timetable({
     const mins = DAY_START * 60 + slot * SLOT;
     return Math.max(DAY_START * 60, Math.min(DAY_END * 60 - dur, mins));
   }
+
+  /** Which day column (if any) a viewport X falls within. */
+  function dayAtX(clientX: number): number | null {
+    let hit: number | null = null;
+    colRefs.current.forEach((el, idx) => {
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      if (clientX >= r.left && clientX < r.right) hit = idx;
+    });
+    return hit;
+  }
+
+  // Catalog card → grid drag (dnd-kit; works for mouse, touch, and pen alike).
+  // The activatorEvent + delta gives the live pointer position without needing
+  // per-column droppable zones — same day/time math as the existing block-move drag.
+  useDndMonitor({
+    onDragMove(event: DragMoveEvent) {
+      const coords = getEventCoordinates(event.activatorEvent);
+      if (!coords) return;
+      const clientX = coords.x + event.delta.x;
+      const clientY = coords.y + event.delta.y;
+      const day = dayAtX(clientX);
+      const el = day === null ? null : colRefs.current[day];
+      setDropHint(el ? { day: day as number, start: yToStartInCol(el, clientY, DEFAULT_DUR) } : null);
+    },
+    onDragEnd(event: DragEndEvent) {
+      setDropHint(null);
+      const coords = getEventCoordinates(event.activatorEvent);
+      if (!coords) return;
+      const clientX = coords.x + event.delta.x;
+      const clientY = coords.y + event.delta.y;
+      const day = dayAtX(clientX);
+      const el = day === null ? null : colRefs.current[day];
+      if (day === null || !el) return;
+      const subj = subjects.find((x) => x.id === String(event.active.id));
+      if (!subj) return;
+      addToGrid(subj, day, yToStartInCol(el, clientY, DEFAULT_DUR), DEFAULT_DUR);
+    },
+    onDragCancel() {
+      setDropHint(null);
+    },
+  });
 
   function onBlockPointerDown(e: React.PointerEvent, p: PlacedSubject) {
     if (selectMode) return;
@@ -123,22 +167,6 @@ export function Timetable({
               colRefs.current[di] = el;
             }}
             style={{ position: 'relative', borderLeft: '1px solid var(--line)' }}
-            onDragOver={(e) => {
-              e.preventDefault();
-              e.dataTransfer.dropEffect = 'copy';
-              setDropHint({ day: di, start: yToStartInCol(e.currentTarget, e.clientY, DEFAULT_DUR) });
-            }}
-            onDragLeave={() => setDropHint(null)}
-            onDrop={(e) => {
-              e.preventDefault();
-              const id = e.dataTransfer.getData('text/subject-id');
-              const subj = subjects.find((x) => x.id === id);
-              if (subj) {
-                const start = yToStartInCol(e.currentTarget, e.clientY, DEFAULT_DUR);
-                addToGrid(subj, di, start, DEFAULT_DUR);
-              }
-              setDropHint(null);
-            }}
           >
             {ROWS.map((m, i) => (
               <div

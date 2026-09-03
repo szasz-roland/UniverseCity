@@ -13,6 +13,7 @@ interface TopBarProps {
   onImportFile: (file: File) => Promise<void>;
   catalogOpen: boolean;
   onToggleCatalog: () => void;
+  onLogout: () => void;
 }
 
 export function TopBar({
@@ -26,6 +27,7 @@ export function TopBar({
   onImportFile,
   catalogOpen,
   onToggleCatalog,
+  onLogout,
 }: TopBarProps) {
   const [confirmAll, setConfirmAll] = useState(false);
   const [exporting, setExporting] = useState(false);
@@ -142,6 +144,9 @@ export function TopBar({
             {exporting ? 'Exportálás…' : 'PDF export'}
           </button>
         )}
+        <button style={btn()} onClick={onLogout} title="Kijelentkezés">
+          Kijelentkezés
+        </button>
       </div>
     </div>
   );

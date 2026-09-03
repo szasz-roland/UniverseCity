@@ -10,6 +10,7 @@ import {
 import type { Subject } from '@/types/curriculum';
 import { loadSubjects, saveSubjects } from '@/lib/storage';
 import { colorFor } from '@/lib/colors';
+import { supabase } from '@/lib/supabaseClient';
 import { usePlanner } from '@/components/planner/usePlanner';
 import { SelectBar, TopBar } from '@/components/planner/TopBar';
 import { Catalog } from '@/components/planner/Catalog';
@@ -123,6 +124,7 @@ export function PlannerPage() {
           await exportTimetablePdf(planner.placed, subjects, planner.conflicts);
         }}
         onImportFile={handleImportFile}
+        onLogout={() => supabase.auth.signOut()}
         catalogOpen={catalogOpen}
         onToggleCatalog={() => setCatalogOpen((o) => !o)}
       />

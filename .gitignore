@@ -10,3 +10,7 @@ dist-ssr
 !.vscode/extensions.json
 *.swp
 tsconfig.tsbuildinfo
+
+# Personal Neptun exports used as local test fixtures — real enrollment/course
+# data, shouldn't land in this public repo.
+/local-data/

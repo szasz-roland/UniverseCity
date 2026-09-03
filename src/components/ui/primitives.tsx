@@ -9,7 +9,7 @@ export function Pill({ label, value, accent }: { label: string; value: number; a
         alignItems: 'center',
         padding: '5px 16px',
         borderRadius: 12,
-        background: accent ? 'var(--lav)' : '#F3F1EB',
+        background: accent ? 'var(--lav)' : 'var(--surface-hover)',
         minWidth: 74,
       }}
     >

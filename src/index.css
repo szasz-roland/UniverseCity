@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Theme tokens. Two independent axes: named theme (pastel, ocean, ...) and
+ * mode (light/dark), combined into a single `data-theme="<name>-<mode>"`
+ * attribute set on <html> by src/lib/theme/ThemeContext.tsx (and, before
+ * React mounts, by the inline bootstrap script in index.html). :root holds
+ * the pastel-light values as a safety-net default; each other combo is a
+ * full override block below so nothing is inherited across combos by
+ * accident. All ink/background pairs are checked for >=4.5:1 contrast
+ * (>=3:1 for the accent against its surrounding background).
+ */
 :root {
   --bg: #f7f6f2;
   --panel: #ffffff;
@@ -16,6 +26,102 @@
   --peach: #fbe7dc;
   --peach-ink: #a05431;
   --accent: #6c5ce0;
+  --input-bg: #fbfaf7;
+  --surface-hover: #f0eee7;
+  --btn-secondary-bg: #efede6;
+  --danger: #c74c49;
+  --danger-bg: #fbe7dc;
+  --danger-ink: #a05431;
+  --blob-1: #6c5ce0;
+  --blob-2: #3a7157;
+  --blob-3: #a05431;
+  --blob-4: #3a6e93;
+  --blob-opacity: 0.16;
+  --success: #3a7157;
+}
+
+[data-theme='pastel-dark'] {
+  --bg: #1c1b22;
+  --panel: #26252f;
+  --ink: #ece9f2;
+  --muted: #a6a2b5;
+  --line: #35323f;
+  --line2: #403c4b;
+  --lav: #3a3560;
+  --lav-ink: #c9c0f5;
+  --sage: #24382e;
+  --sage-ink: #93d1af;
+  --peach: #402c20;
+  --peach-ink: #eeae82;
+  --accent: #6e5fdc;
+  --input-bg: #232129;
+  --surface-hover: #2e2c38;
+  --btn-secondary-bg: #2e2c38;
+  --danger: #bc423f;
+  --danger-bg: #402620;
+  --danger-ink: #f0b48f;
+  --blob-1: #6c5ce0;
+  --blob-2: #3a7157;
+  --blob-3: #a05431;
+  --blob-4: #3a6e93;
+  --blob-opacity: 0.22;
+  --success: #2f6b53;
+}
+
+[data-theme='ocean-light'] {
+  --bg: #eff5f6;
+  --panel: #ffffff;
+  --ink: #1f2e33;
+  --muted: #5c7278;
+  --line: #dce7e9;
+  --line2: #cbdbde;
+  --lav: #d6e8f0;
+  --lav-ink: #256080;
+  --sage: #d6efe6;
+  --sage-ink: #1c6753;
+  --peach: #fde9d2;
+  --peach-ink: #93591a;
+  --accent: #247398;
+  --input-bg: #f5fafb;
+  --surface-hover: #e3edf0;
+  --btn-secondary-bg: #e3edf0;
+  --danger: #c74c49;
+  --danger-bg: #fbe7dc;
+  --danger-ink: #a05431;
+  --blob-1: #2c86b0;
+  --blob-2: #1c6753;
+  --blob-3: #93591a;
+  --blob-4: #256080;
+  --blob-opacity: 0.16;
+  --success: #1c6753;
+}
+
+[data-theme='ocean-dark'] {
+  --bg: #101a1d;
+  --panel: #17262a;
+  --ink: #e6f1f3;
+  --muted: #93aab0;
+  --line: #223438;
+  --line2: #2b4247;
+  --lav: #1f4152;
+  --lav-ink: #7fc4e8;
+  --sage: #1d3f35;
+  --sage-ink: #7fd9b9;
+  --peach: #4a3420;
+  --peach-ink: #e3b27a;
+  --accent: #1f6e92;
+  --input-bg: #14232a;
+  --surface-hover: #1c2d34;
+  --btn-secondary-bg: #1c2d34;
+  --danger: #bc423f;
+  --danger-bg: #402620;
+  --danger-ink: #f0b48f;
+  --blob-1: #2c86b0;
+  --blob-2: #1c6753;
+  --blob-3: #93591a;
+  --blob-4: #256080;
+  --blob-opacity: 0.22;
+  --success: #155c48;
 }
 
 * {
@@ -41,6 +147,9 @@ body {
   color: var(--ink);
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
 input:focus-visible,

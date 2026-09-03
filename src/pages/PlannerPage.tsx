@@ -140,8 +140,8 @@ export function PlannerPage() {
             justifyContent: 'space-between',
             gap: 12,
             padding: '9px 22px',
-            background: '#FBE7DC',
-            color: '#C1663B',
+            background: 'var(--danger-bg)',
+            color: 'var(--danger-ink)',
             fontSize: 12.5,
             borderBottom: '1px solid var(--line2)',
           }}
@@ -153,7 +153,7 @@ export function PlannerPage() {
             style={{
               border: 'none',
               background: 'transparent',
-              color: '#C1663B',
+              color: 'var(--danger-ink)',
               cursor: 'pointer',
               fontSize: 15,
               lineHeight: 1,

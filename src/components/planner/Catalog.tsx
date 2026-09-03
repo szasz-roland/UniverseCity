@@ -93,7 +93,7 @@ export function Catalog({ subjects, placed, onSelect, onPlace }: CatalogProps) {
             padding: '9px 12px',
             fontSize: 13,
             fontFamily: 'inherit',
-            background: '#FBFAF7',
+            background: 'var(--input-bg)',
           }}
         />
         <div style={{ display: 'flex', gap: 6, marginTop: 9, flexWrap: 'wrap' }}>
@@ -149,7 +149,7 @@ function Seg({
   set: (v: string) => void;
 }) {
   return (
-    <div style={{ display: 'inline-flex', background: '#F0EEE7', borderRadius: 9, padding: 2 }}>
+    <div style={{ display: 'inline-flex', background: 'var(--surface-hover)', borderRadius: 9, padding: 2 }}>
       {opts.map(([v, l]) => (
         <button
           key={v}
@@ -232,7 +232,7 @@ function SubjectCard({
         padding: '10px 12px',
         marginBottom: 7,
         cursor: 'grab',
-        background: placed ? '#FBFAF7' : '#fff',
+        background: placed ? 'var(--input-bg)' : 'var(--panel)',
         position: 'relative',
         transition: 'border-color .15s',
         display: 'flex',
@@ -326,7 +326,7 @@ function SubjectCard({
         title="Tanrendbe"
         style={{
           border: 'none',
-          background: placed ? 'var(--sage)' : '#F0EEE7',
+          background: placed ? 'var(--sage)' : 'var(--surface-hover)',
           color: placed ? 'var(--sage-ink)' : 'var(--ink)',
           borderRadius: 9,
           width: 30,

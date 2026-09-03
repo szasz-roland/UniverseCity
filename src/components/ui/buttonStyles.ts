@@ -9,7 +9,7 @@ export function btn(primary?: boolean): CSSProperties {
     fontWeight: 500,
     cursor: 'pointer',
     fontFamily: 'inherit',
-    background: primary ? 'var(--accent)' : '#EFEDE6',
+    background: primary ? 'var(--accent)' : 'var(--btn-secondary-bg)',
     color: primary ? '#fff' : 'var(--ink)',
   };
 }
@@ -23,7 +23,7 @@ export function btnDanger(): CSSProperties {
     fontWeight: 600,
     cursor: 'pointer',
     fontFamily: 'inherit',
-    background: '#C74C49',
+    background: 'var(--danger)',
     color: '#fff',
   };
 }

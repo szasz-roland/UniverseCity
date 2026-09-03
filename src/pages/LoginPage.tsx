@@ -7,13 +7,13 @@ import { btn } from '@/components/ui/buttonStyles';
 // How long the success animation plays before the redirect to /planner actually fires.
 const SUCCESS_HOLD_MS = 700;
 
-// Same six hues the timetable uses for subjects (colors.ts) — reused here purely as
-// soft background decoration so the login page reads as part of the same app.
+// Colors come from --blob-1..4, which shift per active theme (see index.css) so the
+// login page's decoration reads as part of the current theme, not a fixed palette.
 const BLOBS: Array<{ color: string; top: string; left: string; size: number }> = [
-  { color: '#6C5CE0', top: '-8%', left: '-6%', size: 380 },
-  { color: '#3A7157', top: '55%', left: '82%', size: 320 },
-  { color: '#A05431', top: '78%', left: '-4%', size: 260 },
-  { color: '#3A6E93', top: '-10%', left: '78%', size: 300 },
+  { color: 'var(--blob-1)', top: '-8%', left: '-6%', size: 380 },
+  { color: 'var(--blob-2)', top: '55%', left: '82%', size: 320 },
+  { color: 'var(--blob-3)', top: '78%', left: '-4%', size: 260 },
+  { color: 'var(--blob-4)', top: '-10%', left: '78%', size: 300 },
 ];
 
 export function LoginPage() {
@@ -61,7 +61,7 @@ export function LoginPage() {
     padding: '9px 12px',
     fontSize: 13,
     fontFamily: 'inherit',
-    background: '#FBFAF7',
+    background: 'var(--input-bg)',
     transition: 'border-color 150ms ease',
   };
 
@@ -89,7 +89,7 @@ export function LoginPage() {
             height: b.size,
             borderRadius: '50%',
             background: b.color,
-            opacity: 0.16,
+            opacity: 'var(--blob-opacity)',
             filter: 'blur(70px)',
             pointerEvents: 'none',
           }}
@@ -170,8 +170,8 @@ export function LoginPage() {
             role="alert"
             style={{
               fontSize: 12.5,
-              color: '#A05431',
-              background: '#FBE7DC',
+              color: 'var(--danger-ink)',
+              background: 'var(--danger-bg)',
               borderRadius: 8,
               padding: '8px 10px',
               marginBottom: 14,
@@ -194,7 +194,7 @@ export function LoginPage() {
                     height: 44,
                     padding: 0,
                     borderRadius: 22,
-                    background: 'var(--sage-ink)',
+                    background: 'var(--success)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',

@@ -6,6 +6,27 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="theme-color" content="#6C5CE0" />
+    <script>
+      // Sets data-theme before first paint so there's no flash of the wrong theme.
+      // Reads the same 'tanrend.theme.v1' key as src/lib/theme/themes.ts —
+      // duplicated here because this must run before any JS module loads.
+      (function () {
+        try {
+          var raw = localStorage.getItem('tanrend.theme.v1');
+          var pref = raw ? JSON.parse(raw) : {};
+          var name = pref.name === 'ocean' ? 'ocean' : 'pastel';
+          var mode =
+            pref.mode === 'light' || pref.mode === 'dark'
+              ? pref.mode
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light';
+          document.documentElement.setAttribute('data-theme', name + '-' + mode);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'pastel-light');
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
     <title>Tanrend — Üzemmérnök informatikus</title>

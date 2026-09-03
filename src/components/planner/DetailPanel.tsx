@@ -30,7 +30,7 @@ export function DetailPanel({ subj, subjects, onClose, onPlace }: DetailPanelPro
             title="Bezárás"
             style={{
               border: 'none',
-              background: '#F0EEE7',
+              background: 'var(--surface-hover)',
               color: 'var(--ink)',
               borderRadius: 8,
               width: 28,
@@ -146,7 +146,7 @@ function Tag({ children, bg, ink }: { children: React.ReactNode; bg?: string; in
         padding: '3px 10px',
         borderRadius: 20,
         fontWeight: 600,
-        background: bg || '#F0EEE7',
+        background: bg || 'var(--surface-hover)',
         color: ink || 'var(--ink)',
       }}
     >

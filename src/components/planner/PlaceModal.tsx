@@ -33,7 +33,7 @@ export function PlaceModal({ subj, onClose, onPlace }: PlaceModalProps) {
     padding: '8px 10px',
     fontSize: 13,
     fontFamily: 'inherit',
-    background: '#FBFAF7',
+    background: 'var(--input-bg)',
   };
 
   return (

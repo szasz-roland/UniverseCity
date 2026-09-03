@@ -1,6 +1,12 @@
 import { useRef, useState } from 'react';
 import { Pill } from '@/components/ui/primitives';
 import { btn, btnDanger } from '@/components/ui/buttonStyles';
+import { useTheme } from '@/lib/theme/ThemeContext';
+import { THEMES } from '@/lib/theme/themes';
+
+const MODE_CYCLE = { system: 'light', light: 'dark', dark: 'system' } as const;
+const MODE_ICON = { system: '🖥️', light: '☀️', dark: '🌙' } as const;
+const MODE_LABEL = { system: 'Rendszer', light: 'Világos', dark: 'Sötét' } as const;
 
 interface TopBarProps {
   placedCredits: number;
@@ -32,7 +38,9 @@ export function TopBar({
   const [confirmAll, setConfirmAll] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [importing, setImporting] = useState(false);
+  const [themeMenuOpen, setThemeMenuOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { themeName, mode, setThemeName, setMode } = useTheme();
   return (
     <div
       style={{
@@ -144,7 +152,106 @@ export function TopBar({
             {exporting ? 'Exportálás…' : 'PDF export'}
           </button>
         )}
-        <button style={btn()} onClick={onLogout} title="Kijelentkezés">
+        <button
+          onClick={() => setMode(MODE_CYCLE[mode])}
+          title={`Megjelenítési mód: ${MODE_LABEL[mode]} (kattints a váltáshoz)`}
+          aria-label={`Megjelenítési mód: ${MODE_LABEL[mode]}`}
+          style={{
+            ...btn(),
+            width: 34,
+            height: 34,
+            padding: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: 15,
+          }}
+        >
+          {MODE_ICON[mode]}
+        </button>
+        <div style={{ position: 'relative' }}>
+          <button
+            style={btn()}
+            onClick={() => setThemeMenuOpen((v) => !v)}
+            aria-haspopup="true"
+            aria-expanded={themeMenuOpen}
+          >
+            <span
+              style={{
+                display: 'inline-block',
+                width: 9,
+                height: 9,
+                borderRadius: '50%',
+                background: THEMES.find((t) => t.id === themeName)?.swatch,
+                marginRight: 7,
+                verticalAlign: 'middle',
+              }}
+            />
+            {THEMES.find((t) => t.id === themeName)?.label}
+          </button>
+          {themeMenuOpen && (
+            <>
+              <div
+                onClick={() => setThemeMenuOpen(false)}
+                style={{ position: 'fixed', inset: 0, zIndex: 40 }}
+              />
+              <div
+                role="menu"
+                style={{
+                  position: 'absolute',
+                  top: '110%',
+                  right: 0,
+                  background: 'var(--panel)',
+                  border: '1px solid var(--line)',
+                  borderRadius: 12,
+                  boxShadow: '0 12px 30px rgba(0,0,0,.14)',
+                  padding: 6,
+                  minWidth: 140,
+                  zIndex: 41,
+                }}
+              >
+                {THEMES.map((t) => (
+                  <button
+                    key={t.id}
+                    role="menuitemradio"
+                    aria-checked={t.id === themeName}
+                    onClick={() => {
+                      setThemeName(t.id);
+                      setThemeMenuOpen(false);
+                    }}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 8,
+                      width: '100%',
+                      border: 'none',
+                      borderRadius: 8,
+                      padding: '7px 9px',
+                      fontSize: 13,
+                      fontFamily: 'inherit',
+                      cursor: 'pointer',
+                      background: t.id === themeName ? 'var(--surface-hover)' : 'transparent',
+                      color: 'var(--ink)',
+                      textAlign: 'left',
+                    }}
+                  >
+                    <span
+                      style={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: '50%',
+                        background: t.swatch,
+                        flexShrink: 0,
+                      }}
+                    />
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+        <button style={btn()} onClick={onLogout} title="  ">
           Kijelentkezés
         </button>
       </div>

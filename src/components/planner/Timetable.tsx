@@ -225,7 +225,7 @@ export function Timetable({
                       borderRadius: 9,
                       padding: '5px 8px',
                       cursor: selectMode ? 'pointer' : 'grab',
-                      border: '1.5px solid ' + (isChosen ? 'var(--accent)' : bad ? '#D9534F' : c.ink),
+                      border: '1.5px solid ' + (isChosen ? 'var(--accent)' : bad ? 'var(--danger)' : c.ink),
                       outline: isChosen ? '2px solid var(--accent)' : 'none',
                       outlineOffset: 1,
                       boxShadow: '0 1px 3px rgba(0,0,0,.07)',
@@ -269,7 +269,7 @@ export function Timetable({
                       {fmt(p.start)}–{fmt(p.start + p.dur)}
                     </div>
                     {bad && (
-                      <div style={{ fontSize: 9.5, color: '#B8322E', fontWeight: 600, marginTop: 1 }}>
+                      <div style={{ fontSize: 9.5, color: 'var(--danger-ink)', fontWeight: 600, marginTop: 1 }}>
                         ütközés
                       </div>
                     )}

@@ -1,4 +1,13 @@
 import type { PlacedSubject, Subject } from '@/types/curriculum';
+import {
+  DEFAULT_THEME_MODE,
+  DEFAULT_THEME_NAME,
+  THEME_STORAGE_KEY,
+  isThemeMode,
+  isThemeName,
+  type ThemeMode,
+  type ThemeName,
+} from '@/lib/theme/themes';
 
 /**
  * Storage layer. Everything that persists user data goes through here.
@@ -44,5 +53,32 @@ export function saveSubjects(subjects: Subject[]): void {
     localStorage.setItem(SUBJECTS_KEY, JSON.stringify(subjects));
   } catch {
     // Storage full or blocked — fail silently for now; surface to user later.
+  }
+}
+
+export interface ThemePreference {
+  name: ThemeName;
+  mode: ThemeMode;
+}
+
+export function loadThemePreference(): ThemePreference {
+  try {
+    const raw = localStorage.getItem(THEME_STORAGE_KEY);
+    if (!raw) return { name: DEFAULT_THEME_NAME, mode: DEFAULT_THEME_MODE };
+    const parsed = JSON.parse(raw) as Partial<ThemePreference>;
+    return {
+      name: isThemeName(parsed.name) ? parsed.name : DEFAULT_THEME_NAME,
+      mode: isThemeMode(parsed.mode) ? parsed.mode : DEFAULT_THEME_MODE,
+    };
+  } catch {
+    return { name: DEFAULT_THEME_NAME, mode: DEFAULT_THEME_MODE };
+  }
+}
+
+export function saveThemePreference(pref: ThemePreference): void {
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify(pref));
+  } catch {
+    // Storage full or blocked — theme just won't persist across reloads.
   }
 }

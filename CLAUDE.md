@@ -35,7 +35,15 @@ page of a planned larger dashboard — treat it as the foundation, not the whole
 - **@dnd-kit/core + @dnd-kit/utilities** — catalog card → grid drag-to-place (mouse, touch,
   and pen via `PointerSensor`). Placed-block move/resize is separate, hand-rolled Pointer
   Events code in `Timetable.tsx`, already touch-capable — not part of dnd-kit
-- Planned backend: **Supabase** (managed cloud first; self-host is an open escape hatch)
+- **Supabase Auth** (`@supabase/supabase-js`) — email/password login only, single
+  pre-provisioned admin account, public signup disabled at the project level (not just hidden
+  in the UI). Client (`src/lib/supabaseClient.ts`) reads `VITE_SUPABASE_URL` /
+  `VITE_SUPABASE_ANON_KEY` from `.env` (gitignored, never commit). Session storage is
+  supabase-js's own client-side (localStorage) handling — a deliberate, narrow exception to
+  Architecture rule 1, inherent to using the chosen auth provider. Google Sign-In is deferred
+  to a future task, at the user's discretion, once the app is ready for other users.
+- Planned backend (data persistence beyond auth): **Supabase** Postgres (self-host is an open
+  escape hatch)
 - Hosting: **Vercel** (free tier, no custom domain yet); static build is also self-hostable
 - Future packaging: **PWA → Capacitor (Android) → Tauri (desktop)**, all from this one codebase
 
@@ -52,6 +60,12 @@ page of a planned larger dashboard — treat it as the foundation, not the whole
 4. **New dashboard pages are new routes** in `src/App.tsx` + a file in `src/pages/`. Don't
    fold unrelated features into the planner.
 5. **TypeScript strict — no `any` escape hatches.** If types fight you, model the data properly.
+6. **Theming goes through CSS custom-property tokens, never hardcoded hex.** Components style
+   via `var(--token)` (`--bg`, `--ink`, `--accent`, `--danger`, etc.) defined per
+   `[data-theme="<name>-<mode>"]` combo in `src/index.css`. Adding a UI color means adding a
+   token to all 4 combos (contrast-checked, ≥4.5:1 for text), not a literal hex value.
+7. **`/planner` requires auth.** New routes that should be gated go inside `<RequireAuth>` in
+   `src/App.tsx`; routes that must stay public (e.g. `/login`) go outside it.
 
 ## Project structure
 
@@ -70,18 +84,31 @@ src/
 │   ├── conflicts.ts        # timetable overlap detection
 │   ├── pdfExport.ts        # timetable → PDF export
 │   ├── neptunImport.ts     # Neptun "felvett kurzusok" .xlsx import — SEE Data source
-│   └── storage.ts          # persistence layer — SEE RULE 1
+│   ├── storage.ts          # persistence layer — SEE RULE 1
+│   ├── supabaseClient.ts   # Supabase client (anon key only, never service_role)
+│   ├── auth/
+│   │   ├── AuthContext.tsx # session state (user, session, loading) via supabase-js
+│   │   └── RequireAuth.tsx # route guard, redirects to /login when signed out
+│   └── theme/
+│       ├── themes.ts       # theme registry (names, storage key, default)
+│       └── ThemeContext.tsx # mode (system/light/dark) + theme name, sets data-theme attr
 ├── components/
 │   ├── ui/primitives.tsx   # shared buttons, Overlay, Pill
 │   └── planner/
 │       ├── usePlanner.ts   # planner state + actions (single source of truth)
-│       ├── TopBar.tsx      # header + select-mode bar
+│       ├── TopBar.tsx      # header + select-mode bar + theme/mode controls + logout
 │       ├── Catalog.tsx     # searchable subject list, draggable cards
 │       ├── Timetable.tsx   # grid, drag/drop, cross-day move, resize, conflicts, select mode
 │       ├── PlaceModal.tsx  # manual time-entry dialog
 │       └── DetailPanel.tsx # subject detail slide-in with prereq chains
-└── pages/PlannerPage.tsx   # composes the planner
+├── pages/
+│   ├── PlannerPage.tsx     # composes the planner (behind RequireAuth)
+│   └── LoginPage.tsx       # email/password login (public route)
 ```
+
+The no-flash-of-wrong-theme bootstrap in `index.html` reads the same `tanrend.theme.v1`
+localStorage key as `storage.ts`/`themes.ts`, duplicated deliberately since it must run before
+any JS module loads — keep the two in sync if the key ever changes.
 
 ## Grid configuration
 
@@ -118,7 +145,11 @@ git history around 2026-08-29 if revisiting.
 
 - [x] Curriculum browser + timetable planner (local-only)
 - [x] Neptun "felvett kurzusok" .xlsx import → populates catalog + grid (see Data source)
-- [ ] Persistence via Supabase (change only `src/lib/storage.ts` + add auth)
+- [x] Email/password authentication via Supabase (single admin account; Google Sign-In deferred)
+- [x] Dark/light mode + multiple named themes (Pasztell, Óceán)
+- [ ] Gyakorlat/Praktikum course filter (display-only, like `orarend.html`)
+- [ ] Data persistence via Supabase Postgres (change only `src/lib/storage.ts`)
+- [ ] Google Sign-In (opens the app to other users — at the user's discretion)
 - [ ] Prerequisite graph view + "eligible now" flags (uses existing `prereqIds` + `completed`)
 - [ ] Progress tracking + statistics
 - [ ] Notes upload (needs backend storage)
